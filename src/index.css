@@ -1,0 +1,3885 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: "Inter", sans-serif;
+
+  color: #dceef5;
+  background: #030f17;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --bg: #030f17;
+  --bg-2: #061923;
+  --panel: #071d29;
+  --panel-2: #092331;
+
+  --border: #123b4c;
+  --border-bright: #1a556b;
+
+  --cyan: #00bfff;
+  --cyan-soft: #55d9ff;
+
+  --muted: #638594;
+  --muted-2: #8caebb;
+
+  --yellow: #ffd34d;
+  --red: #ff6478;
+  --purple: #b878ff;
+
+  --green: #55d8ad;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--bg);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(0, 191, 255, 0.08),
+      transparent 35%
+    ),
+    var(--bg);
+
+  color: #dceef5;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+}
+
+.main {
+  width: calc(100% - 265px);
+  margin-left: 265px;
+
+  min-height: 100vh;
+
+  padding: 0 50px 80px;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar {
+  position: fixed;
+
+  width: 265px;
+  height: 100vh;
+
+  left: 0;
+  top: 0;
+
+  padding: 38px 20px 24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #04141e,
+      #031019
+    );
+
+  border-right: 1px solid #123746;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 50;
+}
+
+.brand {
+  padding: 4px 15px 38px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  letter-spacing: 2px;
+}
+
+.brand-main {
+  font-size: 25px;
+  font-weight: 900;
+  color: #e8f8ff;
+}
+
+.brand-sub {
+  margin-top: 2px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  color: var(--cyan);
+}
+
+.brand-sub.muted {
+  color: #6c94a4;
+}
+
+.nav-label {
+  padding: 0 15px 10px;
+
+  color: #4d7180;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.navigation {
+  display: grid;
+  gap: 5px;
+}
+
+.nav-item {
+  width: 100%;
+
+  padding: 13px 15px;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  background: transparent;
+
+  color: #6f94a3;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  text-align: left;
+
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s,
+    transform 0.18s;
+}
+
+.nav-item:hover {
+  background: #071f2b;
+  color: #bceaf8;
+}
+
+.nav-item.active {
+  color: #e3f8ff;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 191, 255, 0.12),
+      transparent
+    );
+
+  border-color: #155067;
+}
+
+.nav-item.active svg {
+  color: var(--cyan);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+
+  padding: 17px 15px;
+
+  border-top: 1px solid #123746;
+}
+
+.server-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: var(--green);
+
+  box-shadow:
+    0 0 12px
+    rgba(85, 216, 173, 0.5);
+}
+
+.server-status div {
+  display: grid;
+  gap: 3px;
+}
+
+.server-status small {
+  color: #507585;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.server-status strong {
+  color: #79d7bb;
+
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+.sidebar-version {
+  margin-top: 16px;
+
+  color: #375b69;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.top-header {
+  min-height: 130px;
+
+  border-bottom: 1px solid #123746;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 30px;
+}
+
+.header-eyebrow,
+.section-eyebrow {
+  color: var(--cyan);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.top-header h1 {
+  margin: 7px 0 0;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 38px;
+  line-height: 0.95;
+
+  letter-spacing: 0.5px;
+
+  color: #e8f7fc;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.server-ip,
+.discord-button {
+  min-height: 48px;
+
+  border: 1px solid #164658;
+  border-radius: 7px;
+
+  background: #061a25;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  color: #9dc4d2;
+}
+
+.server-ip {
+  padding: 7px 12px;
+
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 1px;
+
+  text-align: left;
+}
+
+.server-ip span {
+  color: #4e7888;
+
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.server-ip strong {
+  color: #d4edf5;
+
+  font-size: 11px;
+}
+
+.discord-button {
+  padding: 0 14px;
+
+  color: #8fdfff;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.server-ip:hover,
+.discord-button:hover {
+  border-color: var(--cyan);
+  color: #e7faff;
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+  padding-top: 42px;
+
+  display: grid;
+
+  /*
+    IMPORTANT:
+    This creates consistent breathing room between
+    every major section/container.
+  */
+  gap: 45px;
+}
+
+.page-title {
+  max-width: 850px;
+
+  /*
+    Prevent the next container from visually touching
+    the title block.
+  */
+  margin-bottom: 2px;
+}
+
+.page-title h1 {
+  margin: 7px 0 14px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 48px;
+  line-height: 0.95;
+
+  color: #e9f8fd;
+}
+
+.page-title p {
+  max-width: 700px;
+
+  margin: 0;
+
+  color: #7597a5;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   GENERIC SECTION SPACING
+========================================================= */
+
+/*
+  These rules are the main fix for the screenshots.
+
+  Some pages place an eyebrow / heading directly inside
+  a panel without using .panel-top. These rules ensure
+  those elements always receive proper internal padding.
+*/
+
+.panel > .section-eyebrow {
+  display: block;
+
+  padding: 25px 25px 0;
+}
+
+.panel > h1,
+.panel > h2,
+.panel > h3 {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+.panel > h1 {
+  margin-top: 7px;
+}
+
+.panel > h2 {
+  margin-top: 6px;
+}
+
+.panel > .section-header {
+  padding: 25px 25px 0;
+}
+
+.panel > .section-header + * {
+  margin-top: 20px;
+}
+
+/*
+  Prevent headings from sitting directly on the next
+  list/container.
+*/
+.section-header {
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  margin: 6px 0 0;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  color: #dff4fa;
+}
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard-intro {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  padding: 5px 0 10px;
+}
+
+.intro-mark {
+  width: 65px;
+  height: 65px;
+
+  border: 1px solid #18556a;
+  border-radius: 10px;
+
+  background: #062330;
+
+  color: var(--cyan);
+
+  display: grid;
+  place-items: center;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.dashboard-intro h2 {
+  margin: 5px 0 8px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 31px;
+
+  color: #e8f7fb;
+}
+
+.dashboard-intro p {
+  margin: 0;
+
+  color: #6f919f;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   PANELS
+========================================================= */
+
+.panel {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(9, 35, 49, 0.9),
+      rgba(5, 22, 31, 0.96)
+    );
+
+  overflow: hidden;
+}
+
+.panel-top {
+  padding: 25px 25px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+
+  gap: 20px;
+}
+
+.text-button {
+  border: 0;
+
+  background: transparent;
+
+  color: #6dbed7;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.text-button:hover {
+  color: var(--cyan);
+}
+
+/* =========================================================
+   DASHBOARD GRIDS
+========================================================= */
+
+.dashboard-two-column {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+.dashboard-two-column > .panel,
+.dashboard-page > .panel {
+  padding: 25px;
+}
+
+.dashboard-two-column .section-header,
+.dashboard-page > .panel .section-header {
+  margin-bottom: 20px;
+}
+
+/*
+  If a panel already has its own padding, remove the
+  generic nested-header padding to avoid double padding.
+*/
+.dashboard-two-column > .panel > .section-header,
+.dashboard-page > .panel > .section-header {
+  padding: 0;
+}
+
+/* =========================================================
+   LEADERBOARD
+========================================================= */
+
+.leaderboard {
+  padding: 0 14px 14px;
+}
+
+.leaderboard-row {
+  min-height: 48px;
+
+  padding: 0 13px;
+
+  border-top: 1px solid #103240;
+
+  display: grid;
+
+  grid-template-columns:
+    50px 1fr auto;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.rank {
+  color: #4f7381;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.rank-player {
+  color: #bcd9e2;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.crest-count {
+  color: var(--cyan);
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 18px;
+}
+
+.crest-count span {
+  color: #537987;
+
+  font-family: Inter, sans-serif;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.leaderboard-row.rank-1 {
+  margin-top: 3px;
+
+  border: 1px solid
+    rgba(255, 211, 77, 0.35);
+
+  background:
+    rgba(255, 211, 77, 0.055);
+
+  border-radius: 7px;
+}
+
+.leaderboard-row.rank-1 .rank,
+.leaderboard-row.rank-1 .crest-count {
+  color: var(--yellow);
+}
+
+.leaderboard-row.rank-2 {
+  background:
+    rgba(190, 205, 215, 0.035);
+}
+
+.leaderboard-row.rank-2 .rank {
+  color: #b7c8d0;
+}
+
+.leaderboard-row.rank-3 {
+  background:
+    rgba(190, 125, 70, 0.035);
+}
+
+.leaderboard-row.rank-3 .rank {
+  color: #c68c62;
+}
+
+/* =========================================================
+   UPCOMING
+========================================================= */
+
+.upcoming-list {
+  display: grid;
+  gap: 8px;
+}
+
+.upcoming-item {
+  width: 100%;
+
+  min-height: 70px;
+
+  padding: 12px 14px;
+
+  border: 1px solid #123a4b;
+  border-radius: 7px;
+
+  background: #061a25;
+
+  color: #83aab9;
+
+  display: grid;
+
+  grid-template-columns:
+    25px 1fr auto;
+
+  align-items: center;
+
+  gap: 12px;
+
+  text-align: left;
+
+  transition: 0.18s;
+}
+
+.upcoming-item:hover {
+  border-color: var(--cyan);
+
+  background: #082633;
+
+  transform: translateY(-1px);
+}
+
+.upcoming-item div {
+  display: grid;
+  gap: 5px;
+}
+
+.upcoming-item strong {
+  color: #cce8f0;
+
+  font-size: 12px;
+}
+
+.upcoming-item span {
+  color: #587e8d;
+
+  font-size: 10px;
+}
+
+.event-item svg:first-child {
+  color: var(--yellow);
+}
+
+.tournament-item svg:first-child {
+  color: var(--red);
+}
+
+.gamenight-item svg:first-child {
+  color: var(--purple);
+}
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty-state {
+  min-height: 170px;
+
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  gap: 7px;
+}
+
+.empty-state span {
+  color: #295363;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 26px;
+}
+
+.empty-state strong {
+  color: #5e8594;
+
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.empty-state small {
+  color: #3e6270;
+
+  font-size: 10px;
+}
+
+.empty-state.compact {
+  min-height: 100px;
+}
+
+/* =========================================================
+   LATEST WINNERS
+========================================================= */
+
+.latest-winners-section {
+  margin-top: 4px;
+}
+
+.latest-winners-section > .section-header {
+  margin-bottom: 22px;
+}
+
+.latest-winners-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.latest-winner-card {
+  min-height: 155px;
+
+  padding: 23px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: #061b26;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  gap: 10px;
+}
+
+.latest-winner-card.event {
+  border-top: 3px solid var(--yellow);
+}
+
+.latest-winner-card.tournament {
+  border-top: 3px solid var(--red);
+}
+
+.latest-winner-card.gamenight {
+  border-top: 3px solid var(--purple);
+}
+
+.category-tag {
+  color: #597b89;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.latest-winner-name {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 28px;
+
+  color: #e2f5fa;
+}
+
+.latest-winner-title {
+  color: #658996;
+
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.not-available {
+  color: #456572;
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   COMPETITION PAGE
+========================================================= */
+
+.competition-page {
+  gap: 48px;
+}
+
+.previous-winners {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  margin-top: 4px;
+}
+
+.previous-winner-card {
+  min-height: 150px;
+
+  padding: 24px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: #061b26;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: 6px;
+}
+
+.previous-winner-card.event {
+  border-left: 3px solid var(--yellow);
+}
+
+.previous-winner-card.tournament {
+  border-left: 3px solid var(--red);
+}
+
+.previous-winner-card.gamenight {
+  border-left: 3px solid var(--purple);
+}
+
+.previous-winner-place {
+  color: #567986;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.previous-winner-card strong {
+  color: #e3f5f9;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 27px;
+}
+
+.previous-winner-card span {
+  color: #6c929f;
+
+  font-size: 11px;
+}
+
+.previous-winner-card small {
+  color: #466773;
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   COMPETITION LIST
+========================================================= */
+
+.competition-list {
+  display: grid;
+
+  gap: 8px;
+
+  margin-top: 4px;
+}
+
+.competition-row {
+  width: 100%;
+
+  min-height: 83px;
+
+  padding: 10px 16px;
+
+  border: 1px solid var(--border);
+  border-radius: 8px;
+
+  background: #061b26;
+
+  color: inherit;
+
+  display: grid;
+
+  grid-template-columns:
+    75px 1fr auto 25px;
+
+  align-items: center;
+
+  gap: 18px;
+
+  text-align: left;
+
+  transition: 0.18s;
+}
+
+.competition-row:hover {
+  border-color: #1d6279;
+
+  background: #082532;
+
+  transform: translateX(2px);
+}
+
+.competition-row.event:hover {
+  border-color: rgba(
+    255,
+    211,
+    77,
+    0.5
+  );
+}
+
+.competition-row.tournament:hover {
+  border-color: rgba(
+    255,
+    100,
+    120,
+    0.5
+  );
+}
+
+.competition-row.gamenight:hover {
+  border-color: rgba(
+    184,
+    120,
+    255,
+    0.5
+  );
+}
+
+.competition-date {
+  min-height: 55px;
+
+  border-right: 1px solid #133b4b;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.competition-date strong {
+  color: #cde8f0;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 25px;
+}
+
+.competition-date span {
+  color: #557986;
+
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.competition-name {
+  display: grid;
+  gap: 5px;
+}
+
+.competition-name strong {
+  color: #d4edf3;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 21px;
+}
+
+.competition-name span {
+  color: #5f8390;
+
+  font-size: 10px;
+}
+
+.competition-time {
+  color: #76a7b7;
+
+  font-size: 10px;
+
+  text-align: right;
+}
+
+.row-arrow {
+  color: #477281;
+
+  font-size: 18px;
+}
+
+.competition-row:hover .row-arrow {
+  color: var(--cyan);
+}
+
+.competition-row.past {
+  grid-template-columns:
+    160px 1fr 25px;
+
+  opacity: 0.92;
+}
+
+.past-date {
+  color: #597d8a;
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   WINNER HERO
+========================================================= */
+
+.winner-hero {
+  min-height: 370px;
+
+  padding: 30px 50px;
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  background:
+    radial-gradient(
+      circle at 20% 60%,
+      rgba(255, 211, 77, 0.08),
+      transparent 35%
+    ),
+    #061b26;
+
+  display: grid;
+
+  grid-template-columns:
+    300px 1fr;
+
+  align-items: center;
+
+  gap: 50px;
+
+  margin-top: 4px;
+}
+
+.winner-hero.tournament {
+  background:
+    radial-gradient(
+      circle at 20% 60%,
+      rgba(255, 100, 120, 0.07),
+      transparent 35%
+    ),
+    #061b26;
+}
+
+.winner-hero.gamenight {
+  background:
+    radial-gradient(
+      circle at 20% 60%,
+      rgba(184, 120, 255, 0.07),
+      transparent 35%
+    ),
+    #061b26;
+}
+
+.winner-skin-wrap {
+  height: 300px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.winner-skin {
+  max-width: 250px;
+  max-height: 300px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 15px 30px
+      rgba(0, 0, 0, 0.45)
+    );
+}
+
+.winner-info {
+  max-width: 650px;
+}
+
+.winner-label {
+  color: #6a8c99;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.winner-info h2 {
+  margin: 8px 0 3px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 66px;
+  line-height: 0.9;
+
+  color: #edfaff;
+}
+
+.winner-title {
+  color: var(--cyan);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 1.5px;
+}
+
+.winner-hero.event .winner-title {
+  color: var(--yellow);
+}
+
+.winner-hero.tournament .winner-title {
+  color: var(--red);
+}
+
+.winner-hero.gamenight .winner-title {
+  color: var(--purple);
+}
+
+.winner-info blockquote {
+  margin: 30px 0 0;
+
+  max-width: 600px;
+
+  color: #88a8b4;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.muted-quote {
+  color: #486b78 !important;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal-backdrop {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 100;
+
+  padding: 30px;
+
+  background:
+    rgba(0, 8, 13, 0.84);
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.competition-modal {
+  position: relative;
+
+  width: min(850px, 100%);
+
+  max-height: calc(100vh - 60px);
+
+  overflow-y: auto;
+
+  padding: 38px;
+
+  border: 1px solid #1b5267;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #092532,
+      #04151e
+    );
+
+  box-shadow:
+    0 30px 80px
+    rgba(0, 0, 0, 0.55);
+}
+
+.modal-close {
+  position: absolute;
+
+  right: 18px;
+  top: 18px;
+
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid #164456;
+  border-radius: 6px;
+
+  background: #061b26;
+
+  color: #7294a0;
+
+  display: grid;
+  place-items: center;
+}
+
+.modal-close:hover {
+  color: #fff;
+  border-color: var(--cyan);
+}
+
+.modal-eyebrow {
+  color: var(--cyan);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.competition-modal.event .modal-eyebrow {
+  color: var(--yellow);
+}
+
+.competition-modal.tournament
+  .modal-eyebrow {
+  color: var(--red);
+}
+
+.competition-modal.gamenight
+  .modal-eyebrow {
+  color: var(--purple);
+}
+
+.competition-modal h2 {
+  max-width: 700px;
+
+  margin: 8px 0;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 43px;
+  line-height: 0.95;
+
+  color: #ebf9fd;
+}
+
+.modal-date {
+  color: #618592;
+
+  font-size: 11px;
+}
+
+.modal-content {
+  margin-top: 30px;
+
+  display: grid;
+  gap: 28px;
+}
+
+.modal-section {
+  border-top: 1px solid #133a4a;
+
+  padding-top: 20px;
+}
+
+.modal-section h3 {
+  margin: 0 0 12px;
+
+  color: #608593;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.modal-section p {
+  margin: 0;
+
+  color: #9bb8c2;
+
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.modal-info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+.modal-info-grid > div {
+  padding: 15px;
+
+  border: 1px solid #123b4b;
+  border-radius: 7px;
+
+  background: #061a25;
+
+  display: grid;
+  gap: 7px;
+}
+
+.modal-info-grid span {
+  color: #4e7381;
+
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+
+.modal-info-grid strong {
+  color: #c7e4ec;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.reward-list,
+.bullet-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  display: grid;
+  gap: 7px;
+}
+
+.reward-list li,
+.bullet-list li {
+  padding: 11px 13px;
+
+  border: 1px solid #123747;
+  border-radius: 5px;
+
+  background: #061a25;
+
+  color: #a4c1ca;
+
+  font-size: 11px;
+}
+
+.bullet-list li::before {
+  content: "◆";
+
+  margin-right: 9px;
+
+  color: var(--cyan);
+
+  font-size: 7px;
+}
+
+/* =========================
+   PLACEMENT REWARDS
+========================= */
+
+.placement-rewards {
+  display: grid;
+  gap: 12px;
+}
+
+.placement-reward-card {
+  padding: 18px;
+
+  border: 1px solid #163d4c;
+  border-radius: 8px;
+
+  background: #061923;
+
+  display: grid;
+  gap: 14px;
+}
+
+
+/* =========================
+   1ST PLACE
+========================= */
+
+.placement-reward-card.reward-place-first {
+  border-color: rgba(
+    255,
+    211,
+    77,
+    0.45
+  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 211, 77, 0.10),
+      rgba(255, 211, 77, 0.025)
+    );
+}
+
+.reward-place-first
+  .placement-reward-place {
+  color: #ffd34d;
+}
+
+
+/* =========================
+   2ND PLACE
+========================= */
+
+.placement-reward-card.reward-place-second {
+  border-color: rgba(
+    184,
+    120,
+    255,
+    0.42
+  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(184, 120, 255, 0.10),
+      rgba(184, 120, 255, 0.025)
+    );
+}
+
+.reward-place-second
+  .placement-reward-place {
+  color: #b878ff;
+}
+
+
+/* =========================
+   3RD PLACE
+========================= */
+
+.placement-reward-card.reward-place-third {
+  border-color: rgba(
+    198,
+    140,
+    98,
+    0.42
+  );
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(198, 140, 98, 0.09),
+      rgba(198, 140, 98, 0.025)
+    );
+}
+
+.reward-place-third
+  .placement-reward-place {
+  color: #c68c62;
+}
+
+
+/* =========================
+   OTHER PLACEMENTS
+========================= */
+
+.reward-place-other {
+  border-color: #163d4c;
+}
+
+.reward-place-other
+  .placement-reward-place {
+  color: #72c8df;
+}
+
+
+/* =========================
+   PLACEMENT HEADER
+========================= */
+
+.placement-reward-header {
+  display: flex;
+  align-items: center;
+
+  min-height: 24px;
+}
+
+.placement-reward-place {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 18px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* =========================
+   REWARD LIST
+========================= */
+
+.placement-reward-list {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  display: grid;
+  gap: 6px;
+}
+
+.placement-reward-list li {
+  padding: 10px 12px;
+
+  border: 1px solid #123747;
+  border-radius: 5px;
+
+  background: rgba(
+    0,
+    10,
+    16,
+    0.35
+  );
+
+  color: #a8c3cc;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.reward-place-first
+  .placement-reward-list li {
+  border-color: rgba(
+    255,
+    211,
+    77,
+    0.12
+  );
+}
+
+.reward-place-second
+  .placement-reward-list li {
+  border-color: rgba(
+    184,
+    120,
+    255,
+    0.12
+  );
+}
+
+.reward-place-third
+  .placement-reward-list li {
+  border-color: rgba(
+    198,
+    140,
+    98,
+    0.12
+  );
+}
+
+
+/* =========================
+   PARTICIPATION REWARD
+========================= */
+
+.participation-reward {
+  margin-top: 10px;
+
+  padding: 14px 15px;
+
+  border: 1px dashed #19495a;
+  border-radius: 6px;
+
+  background: #061923;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.participation-reward span {
+  color: #527d8c;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.participation-reward strong {
+  color: #9fc1cc;
+
+  font-size: 11px;
+
+  text-align: right;
+}
+
+
+@media (max-width: 650px) {
+  .participation-reward {
+    align-items: flex-start;
+
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .participation-reward strong {
+    text-align: left;
+  }
+}
+
+.notice-box {
+  padding: 15px;
+
+  border: 1px solid #765f24;
+  border-radius: 6px;
+
+  background: rgba(
+    255,
+    211,
+    77,
+    0.05
+  );
+
+  color: #bca96c;
+
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.coming-soon {
+  padding: 35px;
+
+  border: 1px dashed #19495a;
+  border-radius: 7px;
+
+  background: #061923;
+
+  color: #527786;
+
+  text-align: center;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.bracket-button {
+  display: inline-flex;
+
+  padding: 11px 15px;
+
+  border: 1px solid #1a5266;
+  border-radius: 5px;
+
+  background: #072432;
+
+  color: #80d8f2;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.bracket-button:hover {
+  border-color: var(--cyan);
+}
+
+/* =========================================================
+   PLACEMENT REWARDS
+========================================================= */
+
+/*
+  NEW:
+  Reward cards for 1st / 2nd / 3rd place.
+
+  These are designed to be used inside event/tournament
+  detail modals.
+*/
+
+.placement-rewards {
+  display: grid;
+  gap: 10px;
+}
+
+.placement-card {
+  padding: 16px 18px;
+
+  border: 1px solid #163b49;
+  border-radius: 8px;
+
+  background: #061923;
+
+  display: grid;
+  gap: 12px;
+}
+
+.placement-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.placement-card-header strong {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 23px;
+
+  letter-spacing: 0.3px;
+}
+
+.placement-card-header span {
+  color: #658996;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* 1ST PLACE — GOLD */
+
+.placement-card.first {
+  border-color:
+    rgba(255, 211, 77, 0.45);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 211, 77, 0.10),
+      rgba(255, 211, 77, 0.025)
+    );
+}
+
+.placement-card.first
+  .placement-card-header strong {
+  color: var(--yellow);
+}
+
+.placement-card.first
+  .placement-card-header span {
+  color: #b9a05a;
+}
+
+/* 2ND PLACE — PURPLE */
+
+.placement-card.second {
+  border-color:
+    rgba(184, 120, 255, 0.42);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(184, 120, 255, 0.10),
+      rgba(184, 120, 255, 0.025)
+    );
+}
+
+.placement-card.second
+  .placement-card-header strong {
+  color: var(--purple);
+}
+
+.placement-card.second
+  .placement-card-header span {
+  color: #9274b1;
+}
+
+/* 3RD PLACE — CYAN */
+
+.placement-card.third {
+  border-color:
+    rgba(0, 191, 255, 0.30);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 191, 255, 0.075),
+      rgba(0, 191, 255, 0.02)
+    );
+}
+
+.placement-card.third
+  .placement-card-header strong {
+  color: var(--cyan-soft);
+}
+
+.placement-card.third
+  .placement-card-header span {
+  color: #548ba1;
+}
+
+.placement-reward-list {
+  margin: 0;
+
+  padding: 0;
+
+  list-style: none;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 7px;
+}
+
+/* =========================
+   SPECIAL REWARD
+========================= */
+
+/* ============================================================
+   SPECIAL REWARD
+   Make the reward text box span the entire container
+============================================================ */
+
+.placement-reward-card.reward-place-special {
+  grid-column: 1 / -1;
+  width: 100%;
+}
+
+/* The reward list itself should use the full available width */
+.placement-reward-card.reward-place-special
+.placement-reward-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+/* ============================================================
+   EVENT CREST REWARDS
+   Green gradient outline for every reward containing
+   "Event Crest" or "Event Crests"
+============================================================ */
+
+.placement-reward-list li.event-crest-reward {
+  position: relative;
+
+  border: 1px solid transparent;
+
+  background:
+    linear-gradient(
+      rgba(10, 25, 32, 0.96),
+      rgba(10, 25, 32, 0.96)
+    ) padding-box,
+    linear-gradient(
+      135deg,
+      #39ff88,
+      #16c784,
+      #7dffb2,
+      #19d66f
+    ) border-box;
+
+  box-shadow:
+    0 0 10px rgba(39, 255, 130, 0.08);
+
+  color: #c8e4d4;
+}
+
+/* Keep the diamond marker green as well */
+
+.placement-reward-list li.event-crest-reward::before {
+  color: #45ff91;
+  text-shadow:
+    0 0 8px rgba(69, 255, 145, 0.55);
+}
+
+/* Slightly stronger highlight on hover */
+
+.placement-reward-list li.event-crest-reward:hover {
+  background:
+    linear-gradient(
+      rgba(13, 32, 24, 0.98),
+      rgba(13, 32, 24, 0.98)
+    ) padding-box,
+    linear-gradient(
+      135deg,
+      #39ff88,
+      #16c784,
+      #9affc5,
+      #19d66f
+    ) border-box;
+
+  box-shadow:
+    0 0 14px rgba(39, 255, 130, 0.15);
+}
+
+/* ============================================================
+   LEADERBOARD PAGE
+   ============================================================ */
+
+.leaderboard-page {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+
+/* ============================================================
+   LEADERBOARD PANEL
+   ============================================================ */
+
+.leaderboard-panel {
+  margin-bottom: 72px;
+}
+
+
+/* ============================================================
+   EVENT CREST INFORMATION
+   Bottom-of-page informational section
+   ============================================================ */
+
+.crest-info-section {
+  position: relative;
+
+  margin-top: 0;
+  padding: 34px 36px 36px;
+
+  border: 1px solid rgba(0, 191, 255, 0.22);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7, 28, 38, 0.98),
+      rgba(5, 20, 29, 0.98)
+    );
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.22);
+
+  overflow: hidden;
+}
+
+
+/* subtle top glow */
+
+.crest-info-section::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #00bfff,
+      #39ff9a,
+      #00bfff,
+      transparent
+    );
+
+  opacity: 0.8;
+}
+
+
+/* subtle background decoration */
+
+.crest-info-section::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -120px;
+  bottom: -150px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 191, 255, 0.08),
+      transparent 70%
+    );
+
+  pointer-events: none;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.crest-info-header {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+
+.crest-info-header .section-eyebrow {
+  margin-bottom: 7px;
+}
+
+
+.crest-info-header h2 {
+  margin: 0;
+
+  font-size: 30px;
+  line-height: 1.1;
+
+  color: #eefaff;
+}
+
+
+.crest-badge {
+  width: 54px;
+  height: 54px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(0, 191, 255, 0.13),
+      rgba(57, 255, 154, 0.08)
+    );
+
+  border: 1px solid rgba(0, 191, 255, 0.28);
+
+  box-shadow:
+    0 0 25px rgba(0, 191, 255, 0.08);
+
+  font-size: 25px;
+}
+
+
+/* ============================================================
+   INTRO TEXT
+   ============================================================ */
+
+.crest-info-intro {
+  position: relative;
+  z-index: 1;
+
+  max-width: 900px;
+
+  margin-bottom: 26px;
+
+  font-size: 16px;
+  line-height: 1.7;
+
+  color: #79aeca;
+}
+
+
+.crest-info-intro strong {
+  color: #e9f8ff;
+}
+
+
+/* ============================================================
+   INFORMATION CARDS
+   ============================================================ */
+
+.crest-info-grid {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 20px;
+}
+
+
+.crest-info-card {
+  min-height: 150px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 16px;
+
+  padding: 22px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 31, 42, 0.95),
+      rgba(5, 23, 32, 0.95)
+    );
+
+  border: 1px solid rgba(0, 191, 255, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.crest-info-card:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(0, 191, 255, 0.42);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ============================================================
+   CARD ICON
+   ============================================================ */
+
+.crest-card-icon {
+  flex-shrink: 0;
+
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background:
+    rgba(0, 191, 255, 0.08);
+
+  border: 1px solid rgba(0, 191, 255, 0.24);
+
+  font-size: 21px;
+}
+
+
+/* ============================================================
+   CARD CONTENT
+   ============================================================ */
+
+.crest-info-card h3 {
+  margin: 2px 0 7px;
+
+  font-size: 17px;
+
+  color: #eaf8ff;
+}
+
+
+.crest-info-card p {
+  margin: 0;
+
+  font-size: 14px;
+  line-height: 1.65;
+
+  color: #719db7;
+}
+
+
+/* ============================================================
+   FINAL CALLOUT
+   ============================================================ */
+
+.crest-info-footer {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  padding: 19px 22px;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(57, 255, 154, 0.38);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(17, 76, 56, 0.35),
+      rgba(8, 45, 40, 0.25)
+    );
+
+  box-shadow:
+    inset 0 0 25px rgba(57, 255, 154, 0.025);
+}
+
+
+.crest-footer-title {
+  flex-shrink: 0;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  letter-spacing: 3px;
+
+  color: #39ff9a;
+}
+
+
+.crest-footer-text {
+  text-align: right;
+
+  font-size: 14px;
+  line-height: 1.5;
+
+  color: #78a9c3;
+}
+
+
+.crest-footer-text strong {
+  color: #dfffee;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 900px) {
+  .crest-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .crest-info-card {
+    min-height: auto;
+  }
+
+  .crest-info-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .crest-footer-text {
+    text-align: left;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .crest-info-section {
+    padding: 26px 20px 24px;
+
+    border-radius: 14px;
+  }
+
+  .crest-info-header h2 {
+    font-size: 25px;
+  }
+
+  .crest-badge {
+    width: 46px;
+    height: 46px;
+
+    font-size: 21px;
+  }
+
+  .crest-info-intro {
+    font-size: 14px;
+  }
+
+  .crest-info-card {
+    padding: 18px;
+  }
+
+  .crest-card-icon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .crest-footer-title {
+    font-size: 14px;
+    letter-spacing: 2px;
+  }
+}
+/* The actual SECRET REWARD text box */
+.placement-reward-card.reward-place-special
+.placement-reward-list li {
+  grid-column: 1 / -1;
+  width: 100%;
+  box-sizing: border-box;
+}
+.placement-reward-list li {
+  padding: 9px 11px;
+
+  border: 1px solid #123747;
+  border-radius: 5px;
+
+  background: rgba(4, 17, 24, 0.65);
+
+  color: #a4c1ca;
+
+  font-size: 10px;
+
+  line-height: 1.45;
+}
+
+.placement-reward-list li::before {
+  content: "◆";
+
+  margin-right: 8px;
+
+  color: #5f8593;
+
+  font-size: 6px;
+}
+
+/* =========================================================
+   MODAL WINNERS
+========================================================= */
+
+.modal-winners {
+  display: grid;
+  gap: 6px;
+}
+
+/* =========================================================
+   MODAL WINNERS
+========================================================= */
+
+.modal-winners {
+  display: grid;
+  gap: 6px;
+}
+
+.modal-winner {
+  padding: 13px;
+
+  border: 1px solid #123747;
+  border-radius: 6px;
+
+  background: #061923;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* =========================================================
+   WINNER PLACEMENT LABEL
+   KEEPING THE ORIGINAL STYLING
+========================================================= */
+
+.modal-winner strong {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 20px;
+
+  color: #cce8ef;
+}
+
+
+/* =========================================================
+   WINNER PLAYER NAME
+========================================================= */
+
+.modal-winner .winner-player-name {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 24px;
+  font-weight: 500;
+
+  letter-spacing: 0.2px;
+
+  line-height: 1;
+}
+
+
+/* =========================================================
+   1ST PLACE — GOLD
+========================================================= */
+
+.modal-winner.reward-place-first
+  .winner-player-name {
+  color: #ffd34d;
+}
+
+
+/* =========================================================
+   2ND PLACE — PURPLE
+========================================================= */
+
+.modal-winner.reward-place-second
+  .winner-player-name {
+  color: #b878ff;
+}
+
+
+/* =========================================================
+   3RD PLACE — CYAN
+========================================================= */
+
+.modal-winner.reward-place-third
+  .winner-player-name {
+  color: #00bfff;
+}
+
+
+/* =========================================================
+   4TH+ PLACE
+========================================================= */
+
+.modal-winner.reward-place-other
+  .winner-player-name {
+  color: #80c9dc;
+}
+
+/* =========================================================
+   MODAL WINNERS — PLAYER NAMES
+========================================================= */
+
+.modal-winner strong {
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 24px;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+}
+
+/* 1ST PLACE — GOLD */
+.modal-winner.first strong {
+  color: #ffd34d;
+}
+
+/* 2ND PLACE — PURPLE */
+.modal-winner.second strong {
+  color: #b878ff;
+}
+
+/* 3RD PLACE — CYAN */
+.modal-winner.third strong {
+  color: #00bfff;
+}
+
+/* 4TH+ PLACE — NORMAL CYAN */
+.modal-winner.other strong {
+  color: #80c9dc;
+}
+
+/* =========================================================
+   CIRCUIT
+========================================================= */
+
+.circuit-hero {
+  min-height: 190px;
+
+  padding: 35px;
+
+  border: 1px solid #1b4e60;
+  border-radius: 11px;
+
+  background:
+    radial-gradient(
+      circle at 15% 50%,
+      rgba(91, 186, 255, 0.1),
+      transparent 38%
+    ),
+    #061b26;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.circuit-icon {
+  width: 65px;
+  height: 65px;
+
+  border: 1px solid #1b5a70;
+  border-radius: 9px;
+
+  background: #082b3a;
+
+  color: #72dfff;
+
+  display: grid;
+  place-items: center;
+}
+
+.circuit-hero h1 {
+  margin: 6px 0;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 46px;
+
+  color: #e8f8fc;
+}
+
+.circuit-hero p {
+  margin: 0;
+
+  color: #7699a6;
+}
+
+.circuit-description {
+  padding: 27px;
+}
+
+.circuit-description .section-header {
+  margin-bottom: 18px;
+}
+
+.circuit-description p {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: #8eacb7;
+
+  line-height: 1.8;
+
+  font-size: 13px;
+}
+
+.circuit-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+
+  margin-top: 4px;
+}
+
+.circuit-card {
+  position: relative;
+
+  min-height: 180px;
+
+  padding: 25px;
+
+  border: 1px solid #143f4f;
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #071f2b,
+      #051923
+    );
+
+  overflow: hidden;
+}
+
+.circuit-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 140px;
+  height: 140px;
+
+  right: -40px;
+  bottom: -60px;
+
+  border: 1px solid
+    rgba(75, 194, 255, 0.08);
+
+  border-radius: 50%;
+}
+
+.cup-number {
+  color: #315d6d;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.cup-icon {
+  margin-top: 14px;
+
+  color: #6ecce6;
+}
+
+.circuit-card h3 {
+  margin: 9px 0 15px;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 28px;
+
+  color: #d9f1f7;
+}
+
+.coming-badge {
+  display: inline-block;
+
+  padding: 5px 8px;
+
+  border: 1px solid #194657;
+  border-radius: 4px;
+
+  color: #527d8c;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.reward-section {
+  display: grid;
+  gap: 18px;
+}
+
+.reward-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 8px;
+}
+
+.reward-item {
+  min-height: 52px;
+
+  padding: 12px 15px;
+
+  border: 1px solid #123a4a;
+  border-radius: 6px;
+
+  background: #061a25;
+
+  color: #a1bec8;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.reward-dot {
+  color: var(--yellow);
+
+  font-size: 7px;
+}
+
+.grand-championship {
+  padding: 38px;
+
+  border: 1px solid #5b4820;
+  border-radius: 11px;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 211, 77, 0.08),
+      transparent 30%
+    ),
+    #0a1d24;
+
+  display: grid;
+  gap: 20px;
+}
+
+.grand-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  color: var(--yellow);
+}
+
+.grand-header h2 {
+  margin: 5px 0 0;
+
+  color: #f4ebca;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 37px;
+}
+
+.grand-championship > p {
+  max-width: 800px;
+
+  margin: 0;
+
+  color: #9eaa9b;
+
+  line-height: 1.8;
+
+  font-size: 12px;
+}
+
+.grand-rewards {
+  padding-top: 20px;
+
+  border-top: 1px solid #453a20;
+}
+
+.grand-rewards h3 {
+  margin: 0 0 13px;
+
+  color: #a28c51;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.unknown-pokemon {
+  padding: 30px;
+
+  border: 1px dashed #5a4a25;
+  border-radius: 8px;
+
+  background: rgba(
+    0,
+    0,
+    0,
+    0.15
+  );
+
+  text-align: center;
+}
+
+.unknown-symbol {
+  color: #74623a;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 44px;
+  font-weight: 900;
+
+  letter-spacing: 8px;
+}
+
+.unknown-pokemon h3 {
+  margin: 5px 0 20px;
+
+  color: #9b8650;
+
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+.lore {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  color: #7d816f;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 18px;
+  line-height: 1.5;
+
+  font-style: italic;
+}
+
+.lore p {
+  margin: 12px 0;
+}
+
+/* =========================================================
+   FULL LEADERBOARD
+========================================================= */
+
+.full-leaderboard-panel {
+  padding: 0;
+}
+
+/*
+  IMPORTANT FIX:
+  The heading inside the leaderboard now has its own
+  proper breathing room from the panel border.
+*/
+
+.full-leaderboard-panel > .section-eyebrow {
+  padding: 28px 25px 0;
+}
+
+.full-leaderboard-panel > .section-header {
+  padding: 0 25px;
+  margin-top: 6px;
+  margin-bottom: 22px;
+}
+
+.full-leaderboard {
+  padding: 0 20px 20px;
+
+  display: grid;
+  gap: 8px;
+}
+
+.full-rank-row {
+  min-height: 70px;
+
+  padding: 0 18px;
+
+  border: 1px solid #103646;
+  border-radius: 7px;
+
+  background: #061923;
+
+  display: grid;
+
+  grid-template-columns:
+    60px 50px 1fr auto;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.full-rank {
+  color: #507583;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 20px;
+}
+
+.player-head {
+  width: 40px;
+  height: 40px;
+
+  image-rendering: pixelated;
+
+  border-radius: 4px;
+}
+
+.full-player-name {
+  color: #cce7ef;
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 24px;
+}
+
+.full-crests {
+  display: flex;
+  align-items: baseline;
+
+  gap: 8px;
+}
+
+.full-crests strong {
+  color: var(--cyan);
+
+  font-family:
+    "Barlow Condensed",
+    sans-serif;
+
+  font-size: 27px;
+}
+
+.full-crests span {
+  color: #4f7482;
+
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+
+.full-rank-row.rank-1 {
+  border-color:
+    rgba(255, 211, 77, 0.4);
+
+  background:
+    rgba(255, 211, 77, 0.05);
+}
+
+.full-rank-row.rank-1
+  .full-rank,
+.full-rank-row.rank-1
+  .full-crests strong {
+  color: var(--yellow);
+}
+
+.full-rank-row.rank-2 {
+  background:
+    rgba(190, 205, 215, 0.035);
+}
+
+.full-rank-row.rank-3 {
+  background:
+    rgba(190, 125, 70, 0.035);
+}
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faq-panel {
+  padding: 0;
+}
+
+/*
+  Same spacing correction as the leaderboard.
+*/
+
+.faq-panel > .section-eyebrow {
+  display: block;
+
+  padding: 28px 25px 0;
+}
+
+.faq-panel > .section-header {
+  padding: 0 25px;
+
+  margin-top: 6px;
+  margin-bottom: 22px;
+}
+
+.faq-list {
+  padding: 0 20px 20px;
+
+  display: grid;
+  gap: 8px;
+}
+
+.faq-item {
+  width: 100%;
+
+  padding: 19px;
+
+  border: 1px solid #123a4a;
+  border-radius: 7px;
+
+  background: #061923;
+
+  color: inherit;
+
+  text-align: left;
+
+  transition: 0.18s;
+}
+
+.faq-item:hover,
+.faq-item.open {
+  border-color: #1b5367;
+
+  background: #07202b;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.faq-question strong {
+  color: #c8e3eb;
+
+  font-size: 12px;
+}
+
+.faq-question svg {
+  color: #537988;
+
+  transition: 0.2s;
+}
+
+.faq-question svg.rotated {
+  transform: rotate(45deg);
+
+  color: var(--cyan);
+}
+
+.faq-answer {
+  padding-top: 16px;
+
+  border-top: 1px solid #113543;
+
+  margin-top: 16px;
+}
+
+.faq-answer p {
+  margin: 0;
+
+  color: #86a5b1;
+
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.faq-answer small {
+  display: block;
+
+  margin-top: 12px;
+
+  color: #4d707e;
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   GENERAL SECTION SEPARATION
+========================================================= */
+
+/*
+  These classes help when a heading is outside a panel.
+
+  They make sure:
+    HEADING
+       ↓
+    breathing room
+       ↓
+    CONTAINER
+*/
+
+.section-block {
+  display: grid;
+  gap: 20px;
+}
+
+.section-block > .section-header {
+  margin-bottom: 0;
+}
+
+.section-block > .panel {
+  margin-top: 0;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 1100px) {
+  .sidebar {
+    width: 225px;
+  }
+
+  .main {
+    width: calc(100% - 225px);
+    margin-left: 225px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .winner-hero {
+    grid-template-columns: 220px 1fr;
+
+    gap: 30px;
+
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .winner-info h2 {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 850px) {
+  .top-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 28px 0;
+
+    gap: 20px;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .server-ip {
+    flex: 1;
+  }
+
+  .discord-button {
+    flex: 0;
+  }
+
+  .dashboard-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .latest-winners-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .winner-hero {
+    grid-template-columns: 1fr;
+
+    text-align: center;
+
+    padding-top: 30px;
+  }
+
+  .winner-skin-wrap {
+    height: 250px;
+  }
+
+  .winner-info {
+    margin: 0 auto;
+  }
+
+  .previous-winners {
+    grid-template-columns: 1fr;
+  }
+
+  .circuit-grid,
+  .reward-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .placement-reward-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .sidebar {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    padding: 22px 15px;
+
+    border-right: 0;
+    border-bottom: 1px solid #123746;
+  }
+
+  .brand {
+    padding: 0 8px 20px;
+  }
+
+  .navigation {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .nav-label,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .nav-item {
+    padding: 11px;
+
+    font-size: 11px;
+  }
+
+  .main {
+    width: 100%;
+    margin-left: 0;
+
+    padding: 0 16px 50px;
+  }
+
+  .top-header {
+    min-height: 0;
+
+    padding: 24px 0;
+  }
+
+  .top-header h1 {
+    font-size: 31px;
+  }
+
+  .header-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .server-ip,
+  .discord-button {
+    width: 100%;
+  }
+
+  .discord-button {
+    min-height: 43px;
+
+    justify-content: center;
+  }
+
+  .page {
+    padding-top: 28px;
+
+    gap: 36px;
+  }
+
+  .page-title h1 {
+    font-size: 39px;
+  }
+
+  .dashboard-intro {
+    align-items: flex-start;
+  }
+
+  .intro-mark {
+    display: none;
+  }
+
+  .competition-row {
+    grid-template-columns:
+      58px 1fr 20px;
+
+    gap: 10px;
+  }
+
+  .competition-time {
+    display: none;
+  }
+
+  .competition-row.past {
+    grid-template-columns:
+      1fr 20px;
+  }
+
+  .past-date {
+    display: none;
+  }
+
+  .competition-name strong {
+    font-size: 19px;
+  }
+
+  .modal-backdrop {
+    padding: 10px;
+  }
+
+  .competition-modal {
+    max-height: calc(100vh - 20px);
+
+    padding: 25px 18px;
+  }
+
+  .competition-modal h2 {
+    font-size: 34px;
+
+    padding-right: 30px;
+  }
+
+  .modal-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .winner-hero {
+    min-height: 0;
+
+    padding: 20px;
+
+    gap: 10px;
+  }
+
+  .winner-skin-wrap {
+    height: 220px;
+  }
+
+  .winner-info h2 {
+    font-size: 48px;
+  }
+
+  .winner-info blockquote {
+    font-size: 18px;
+  }
+
+  .circuit-hero {
+    padding: 25px;
+
+    align-items: flex-start;
+  }
+
+  .circuit-icon {
+    display: none;
+  }
+
+  .circuit-hero h1 {
+    font-size: 36px;
+  }
+
+  .grand-championship {
+    padding: 25px;
+  }
+
+  .grand-header h2 {
+    font-size: 29px;
+  }
+
+  .full-leaderboard {
+    padding: 0 12px 12px;
+  }
+
+  .full-leaderboard-panel > .section-eyebrow {
+    padding: 24px 18px 0;
+  }
+
+  .full-leaderboard-panel > .section-header {
+    padding: 0 18px;
+  }
+
+  .full-rank-row {
+    grid-template-columns:
+      40px 40px 1fr;
+
+    padding: 0 10px;
+  }
+
+  .full-crests {
+    grid-column: 3;
+  }
+
+  .full-player-name {
+    font-size: 21px;
+  }
+
+  .faq-list {
+    padding: 0 12px 12px;
+  }
+
+  .faq-panel > .section-eyebrow {
+    padding: 24px 18px 0;
+  }
+
+  .faq-panel > .section-header {
+    padding: 0 18px;
+  }
+
+  .placement-card {
+    padding: 14px;
+  }
+
+  .placement-card-header strong {
+    font-size: 20px;
+  }
+}
+
+/* =========================================================
+   MODAL VISUAL UPGRADE
+   Keeps all existing modal content and layout, while adding
+   stronger colour, highlights, outlines and category accents.
+========================================================= */
+
+.competition-modal {
+  border: 1px solid #24576b;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 92% 4%, rgba(0, 191, 255, 0.09), transparent 28%),
+    linear-gradient(145deg, #0a2a39 0%, #061b27 48%, #04141d 100%);
+  box-shadow:
+    0 0 0 1px rgba(0, 191, 255, 0.035),
+    0 30px 90px rgba(0, 0, 0, 0.62),
+    0 0 45px rgba(0, 191, 255, 0.07);
+}
+
+.competition-modal.event {
+  border-color: rgba(255, 211, 77, 0.38);
+  background:
+    radial-gradient(circle at 92% 4%, rgba(255, 211, 77, 0.13), transparent 30%),
+    linear-gradient(145deg, #102b34 0%, #071d27 48%, #04151e 100%);
+}
+
+.competition-modal.tournament {
+  border-color: rgba(255, 100, 120, 0.38);
+  background:
+    radial-gradient(circle at 92% 4%, rgba(255, 100, 120, 0.12), transparent 30%),
+    linear-gradient(145deg, #2a1d2a 0%, #101c27 48%, #06151e 100%);
+}
+
+.competition-modal.gamenight {
+  border-color: rgba(184, 120, 255, 0.38);
+  background:
+    radial-gradient(circle at 92% 4%, rgba(184, 120, 255, 0.13), transparent 30%),
+    linear-gradient(145deg, #201b35 0%, #101b2a 48%, #06151e 100%);
+}
+
+.competition-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 2px;
+  border-radius: 0 0 4px 4px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.65;
+}
+
+.competition-modal.event::before {
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+}
+
+.competition-modal.tournament::before {
+  background: linear-gradient(90deg, transparent, var(--red), transparent);
+}
+
+.competition-modal.gamenight::before {
+  background: linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+
+.competition-modal .modal-close {
+  border-color: #28586a;
+  background: rgba(3, 15, 23, 0.72);
+  box-shadow: 0 0 18px rgba(0, 191, 255, 0.05);
+}
+
+.competition-modal.event .modal-close:hover {
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.competition-modal.tournament .modal-close:hover {
+  border-color: var(--red);
+  color: var(--red);
+}
+
+.competition-modal.gamenight .modal-close:hover {
+  border-color: var(--purple);
+  color: var(--purple);
+}
+
+.competition-modal h2 {
+  text-shadow: 0 0 24px rgba(0, 191, 255, 0.08);
+}
+
+.competition-modal.event h2 {
+  text-shadow: 0 0 24px rgba(255, 211, 77, 0.09);
+}
+
+.competition-modal.tournament h2 {
+  text-shadow: 0 0 24px rgba(255, 100, 120, 0.09);
+}
+
+.competition-modal.gamenight h2 {
+  text-shadow: 0 0 24px rgba(184, 120, 255, 0.09);
+}
+
+.competition-modal .modal-date {
+  display: inline-flex;
+  width: fit-content;
+  padding: 6px 10px;
+  border: 1px solid #19495a;
+  border-radius: 5px;
+  background: rgba(4, 18, 26, 0.7);
+}
+
+.competition-modal.event .modal-date {
+  border-color: rgba(255, 211, 77, 0.22);
+  color: #c2ad65;
+}
+
+.competition-modal.tournament .modal-date {
+  border-color: rgba(255, 100, 120, 0.22);
+  color: #bd7b88;
+}
+
+.competition-modal.gamenight .modal-date {
+  border-color: rgba(184, 120, 255, 0.22);
+  color: #9d7ec1;
+}
+
+.competition-modal .modal-section {
+  border-top: 1px solid rgba(39, 89, 108, 0.72);
+  padding: 19px 17px 0;
+  border-radius: 8px 8px 0 0;
+}
+
+.competition-modal .modal-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #79aabb;
+}
+
+.competition-modal .modal-section h3::before {
+  content: '';
+  width: 4px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.35);
+}
+
+.competition-modal.event .modal-section h3::before {
+  background: var(--yellow);
+  box-shadow: 0 0 10px rgba(255, 211, 77, 0.35);
+}
+
+.competition-modal.tournament .modal-section h3::before {
+  background: var(--red);
+  box-shadow: 0 0 10px rgba(255, 100, 120, 0.35);
+}
+
+.competition-modal.gamenight .modal-section h3::before {
+  background: var(--purple);
+  box-shadow: 0 0 10px rgba(184, 120, 255, 0.35);
+}
+
+.competition-modal .modal-section p {
+  padding: 14px 15px;
+  border: 1px solid #153f50;
+  border-radius: 7px;
+  background: rgba(3, 17, 24, 0.48);
+}
+
+.competition-modal .modal-info-grid > div {
+  border-color: #1a4a5c;
+  background: linear-gradient(145deg, rgba(8, 35, 47, 0.95), rgba(4, 20, 28, 0.95));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.025);
+}
+
+.competition-modal.event .modal-info-grid > div {
+  border-color: rgba(255, 211, 77, 0.16);
+}
+
+.competition-modal.tournament .modal-info-grid > div {
+  border-color: rgba(255, 100, 120, 0.16);
+}
+
+.competition-modal.gamenight .modal-info-grid > div {
+  border-color: rgba(184, 120, 255, 0.16);
+}
+
+.competition-modal .placement-reward-card {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+.competition-modal .placement-reward-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: #477281;
+}
+
+.competition-modal .placement-reward-card.reward-place-first::before {
+  background: var(--yellow);
+  box-shadow: 0 0 16px rgba(255, 211, 77, 0.28);
+}
+
+.competition-modal .placement-reward-card.reward-place-second::before {
+  background: var(--purple);
+  box-shadow: 0 0 16px rgba(184, 120, 255, 0.28);
+}
+
+.competition-modal .placement-reward-card.reward-place-third::before {
+  background: var(--cyan);
+  box-shadow: 0 0 16px rgba(0, 191, 255, 0.24);
+}
+
+.competition-modal .placement-reward-place {
+  text-shadow: 0 0 14px currentColor;
+}
+
+.competition-modal .placement-reward-list li {
+  transition: border-color 0.18s, background 0.18s, transform 0.18s;
+}
+
+.competition-modal .placement-reward-list li:hover {
+  transform: translateX(2px);
+}
+
+.competition-modal.event .placement-reward-list li:hover {
+  border-color: rgba(255, 211, 77, 0.3);
+  background: rgba(255, 211, 77, 0.055);
+}
+
+.competition-modal.tournament .placement-reward-list li:hover {
+  border-color: rgba(184, 120, 255, 0.3);
+  background: rgba(184, 120, 255, 0.055);
+}
+
+.competition-modal.gamenight .placement-reward-list li:hover {
+  border-color: rgba(184, 120, 255, 0.3);
+  background: rgba(184, 120, 255, 0.055);
+}
+
+.competition-modal .participation-reward {
+  border-style: solid;
+  border-color: #235264;
+  background: linear-gradient(90deg, rgba(10, 39, 50, 0.9), rgba(5, 23, 31, 0.75));
+}
+
+.competition-modal.event .participation-reward {
+  border-color: rgba(255, 211, 77, 0.22);
+}
+
+.competition-modal.tournament .participation-reward {
+  border-color: rgba(255, 100, 120, 0.22);
+}
+
+.competition-modal.gamenight .participation-reward {
+  border-color: rgba(184, 120, 255, 0.22);
+}
+
+.competition-modal .bullet-list li {
+  border-color: #173f4f;
+  background: rgba(4, 20, 28, 0.72);
+}
+
+.competition-modal .bullet-list li:hover {
+  border-color: #246077;
+  background: rgba(7, 29, 40, 0.9);
+}
+
+.competition-modal.event .bullet-list li::before {
+  color: var(--yellow);
+}
+
+.competition-modal.tournament .bullet-list li::before {
+  color: var(--red);
+}
+
+.competition-modal.gamenight .bullet-list li::before {
+  color: var(--purple);
+}
+
+.competition-modal .notice-box {
+  box-shadow: inset 0 0 20px rgba(255, 211, 77, 0.025);
+}
+
+.competition-modal .bracket-button {
+  box-shadow: 0 0 18px rgba(0, 191, 255, 0.05);
+}
+
+.competition-modal .coming-soon {
+  border-color: #23586b;
+  background: linear-gradient(135deg, rgba(7, 31, 42, 0.9), rgba(4, 19, 27, 0.9));
+}
+
+.competition-modal .modal-winner {
+  border-color: #194557;
+  background: linear-gradient(90deg, rgba(7, 29, 40, 0.95), rgba(4, 19, 27, 0.9));
+}
+
+.competition-modal .modal-winner.reward-place-first {
+  border-color: rgba(255, 211, 77, 0.38);
+  background: linear-gradient(90deg, rgba(255, 211, 77, 0.095), rgba(255, 211, 77, 0.018));
+  box-shadow: inset 3px 0 0 var(--yellow);
+}
+
+.competition-modal .modal-winner.reward-place-second {
+  border-color: rgba(184, 120, 255, 0.34);
+  background: linear-gradient(90deg, rgba(184, 120, 255, 0.095), rgba(184, 120, 255, 0.018));
+  box-shadow: inset 3px 0 0 var(--purple);
+}
+
+.competition-modal .modal-winner.reward-place-third {
+  border-color: rgba(0, 191, 255, 0.28);
+  background: linear-gradient(90deg, rgba(0, 191, 255, 0.075), rgba(0, 191, 255, 0.015));
+  box-shadow: inset 3px 0 0 var(--cyan);
+}
+
+.competition-modal .modal-winner strong {
+  min-width: 105px;
+}
+
+.competition-modal .winner-player-name {
+  text-shadow: 0 0 16px currentColor;
+}
+
+@media (max-width: 650px) {
+  .competition-modal .modal-section {
+    padding-left: 11px;
+    padding-right: 11px;
+  }
+
+  .competition-modal .modal-info-grid > div {
+    padding: 13px;
+  }
+
+  .competition-modal .placement-reward-card {
+    padding: 15px;
+  }
+
+  .competition-modal .modal-winner {
+    flex-wrap: wrap;
+    gap: 7px 12px;
+  }
+
+  .competition-modal .modal-winner strong {
+    min-width: 95px;
+  }
+}

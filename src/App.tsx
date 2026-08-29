@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import Sidebar, {
   type Page,
@@ -19,6 +19,17 @@ import { gamenights } from "./data/gamenights";
 export default function App() {
   const [page, setPage] =
     useState<Page>("dashboard");
+
+  const [showIntro, setShowIntro] =
+    useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowIntro(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   function renderPage() {
     switch (page) {
@@ -62,6 +73,23 @@ export default function App() {
           />
         );
     }
+  }
+
+  if (showIntro) {
+    return (
+      <div className="site-intro">
+        <div className="site-intro-logo">
+          <img
+            src="/calogos1.png"
+            alt="CobbleAsia"
+          />
+        </div>
+
+        <h1>COBBLEASIA</h1>
+
+        <p>Events &amp; Tournaments</p>
+      </div>
+    );
   }
 
   return (

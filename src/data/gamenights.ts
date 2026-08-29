@@ -10,18 +10,24 @@ export type Gamenight = {
   registrationInfo?: string;
   rewards: string[];
   bracket?: string | null;
+
   winners?: {
     place: number;
     username: string;
+    quote?: string;
   }[];
+
   specialMentions?: string[];
   finaleUrl?: string;
 };
 
+
 export const gamenights: Gamenight[] = [
   {
     id: "gamenight-3-imperium",
+
     name: "Game Night #3 – Champion's Draft: Imperium",
+
     status: "completed",
 
     description:
@@ -46,8 +52,10 @@ export const gamenights: Gamenight[] = [
       {
         place: 1,
         username: "TheGreatJenish",
-        quote: "Either give up at the very begining or never give up",
+        quote:
+          "Either give up at the very begining or never give up",
       },
+
       {
         place: 2,
         username: "Deathox",

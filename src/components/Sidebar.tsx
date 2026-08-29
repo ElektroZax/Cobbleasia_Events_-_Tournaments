@@ -117,7 +117,7 @@ export default function Sidebar({
         </div>
 
         <div className="sidebar-version">
-          SEASON 2
+          Website by CallMeAtom
         </div>
       </div>
     </aside>

@@ -1,6 +1,6 @@
 import { Copy, ExternalLink } from "lucide-react";
 
-const SERVER_IP = "play.cobbleasia.com";
+const SERVER_IP = "play.cobbleasia.net";
 
 const DISCORD_URL =
   "https://discord.gg/qB3ExYsUAH";
@@ -33,14 +33,22 @@ export default function Header() {
           className="server-ip"
           onClick={copyIP}
           title="Copy server IP"
+          type="button"
         >
-          <span>SERVER IP</span>
+          <span className="server-ip-label">
+            SERVER IP
+          </span>
 
-          <strong>
-            {SERVER_IP}
-          </strong>
+          <div className="server-ip-value">
+            <strong>
+              {SERVER_IP}
+            </strong>
 
-          <Copy size={15} />
+            <Copy
+              className="server-ip-copy-icon"
+              size={15}
+            />
+          </div>
         </button>
 
         <a
@@ -50,6 +58,7 @@ export default function Header() {
           className="discord-button"
         >
           DISCORD
+
           <ExternalLink size={15} />
         </a>
       </div>

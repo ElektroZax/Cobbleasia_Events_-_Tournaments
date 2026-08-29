@@ -398,6 +398,10 @@ a {
   gap: 9px;
 }
 
+/* =========================================================
+   SERVER IP
+========================================================= */
+
 .server-ip,
 .discord-button {
   min-height: 48px;
@@ -409,9 +413,14 @@ a {
 
   display: flex;
   align-items: center;
-  gap: 10px;
 
   color: #9dc4d2;
+
+  transition:
+    border-color 0.18s,
+    background 0.18s,
+    color 0.18s,
+    box-shadow 0.18s;
 }
 
 .server-ip {
@@ -420,26 +429,81 @@ a {
   flex-direction: column;
   align-items: flex-start;
 
-  gap: 1px;
+  justify-content: center;
+
+  gap: 2px;
 
   text-align: left;
 }
 
-.server-ip span {
+.server-ip-label {
   color: #4e7888;
 
   font-size: 8px;
+  line-height: 1;
+
   letter-spacing: 2px;
+}
+
+.server-ip-value {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
 }
 
 .server-ip strong {
   color: #d4edf5;
 
   font-size: 11px;
+  line-height: 1.1;
+
+  white-space: nowrap;
 }
+
+.server-ip-copy-icon {
+  flex-shrink: 0;
+
+  color: #78b8ca;
+
+  transition:
+    color 0.18s,
+    transform 0.18s;
+}
+
+.server-ip:hover {
+  border-color: var(--cyan);
+
+  background: #07202b;
+
+  color: #e7faff;
+
+  box-shadow:
+    0 0 14px rgba(0, 191, 255, 0.08);
+}
+
+.server-ip:hover strong {
+  color: #e7faff;
+}
+
+.server-ip:hover .server-ip-copy-icon {
+  color: var(--cyan);
+
+  transform: scale(1.08);
+}
+
+.server-ip:active {
+  transform: translateY(1px);
+}
+
+/* =========================================================
+   DISCORD
+========================================================= */
 
 .discord-button {
   padding: 0 14px;
+
+  gap: 10px;
 
   color: #8fdfff;
 
@@ -449,10 +513,15 @@ a {
   letter-spacing: 1.5px;
 }
 
-.server-ip:hover,
 .discord-button:hover {
   border-color: var(--cyan);
+
+  background: #07202b;
+
   color: #e7faff;
+
+  box-shadow:
+    0 0 14px rgba(0, 191, 255, 0.08);
 }
 
 /* =========================================================

@@ -264,28 +264,96 @@ a {
   letter-spacing: 2px;
 }
 
-/* =========================================================
-   HEADER
-========================================================= */
+/* ============================================================
+   COBBLEASIA — SPLASH SCREEN
+   ============================================================ */
 
-.intro-mark {
+.site-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Same background as the main website */
+  background: #06131c;
+
+  color: #f2f7fa;
+
+  font-family: "Inter", sans-serif;
+
+  animation: introFadeIn 0.5s ease forwards;
+}
+
+.site-intro-logo {
+  width: 110px;
+  height: 110px;
+
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 64px;
-  height: 64px;
-
-  overflow: hidden;
+  margin-bottom: 24px;
 }
 
-.intro-mark img {
+.site-intro-logo img {
   width: 100%;
   height: 100%;
 
   object-fit: contain;
+
   display: block;
 }
+
+.site-intro h1 {
+  margin: 0;
+
+  font-family: "Rajdhani", sans-serif;
+  font-size: clamp(42px, 7vw, 72px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1;
+
+  color: #f2f7fa;
+
+  text-align: center;
+}
+
+.site-intro p {
+  margin: 14px 0 0;
+
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+
+  color: #20c4ff;
+
+  text-align: center;
+}
+
+
+/* ============================================================
+   SPLASH ANIMATION
+   ============================================================ */
+
+@keyframes introFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
 
 .top-header {
   min-height: 130px;
@@ -2464,6 +2532,25 @@ a {
     font-size: 14px;
     letter-spacing: 2px;
   }
+}
+
+.intro-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 64px;
+  height: 64px;
+
+  overflow: hidden;
+}
+
+.intro-mark img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  display: block;
 }
 /* The actual SECRET REWARD text box */
 .placement-reward-card.reward-place-special

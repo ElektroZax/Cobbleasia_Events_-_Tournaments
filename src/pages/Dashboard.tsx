@@ -74,7 +74,10 @@ export default function Dashboard({
     <div className="page dashboard-page">
       <section className="dashboard-intro">
         <div className="intro-mark">
-          CA
+          <img
+            src="/calogos1.png"
+            alt="CobbleAsia"
+            />
         </div>
 
         <div>
